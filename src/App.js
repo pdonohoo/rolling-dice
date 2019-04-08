@@ -14,13 +14,14 @@ class App extends Component {
  rollDie = (dice, i, rollHistory) => (e) => {
    console.log(dice[i])
    let roll = Math.floor(Math.random() * dice[i] +1)
-   let rollMemory = rollHistory.push([roll])
+   rollHistory.push(roll)
    console.log(roll)
    console.log(rollHistory)
-  this.setState({
-    diceRoll: roll,
-    rollHistory: rollMemory,
-  })
+   this.setState({
+     diceRoll: roll,
+     rollHistory: rollHistory,
+    })
+    console.log(this.state.rollHistory)
  }
 
   render() {
@@ -41,7 +42,7 @@ class App extends Component {
             You rolled a {this.state.diceRoll}
           </h4>
           <h4>
-          Your roll history {this.state.rollHistory}
+          {`Roll History ${this.state.rollHistory}`}
           </h4>
         </div>
       </div>
